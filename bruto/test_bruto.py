@@ -18,8 +18,8 @@ def bruto_force_Py(candidates, target, epsilon=0.01, all=False):
 
 if __name__ == '__main__':
 
-    src1 = list(np.random.randint(0, 1000000, size=5))
-    src2 = list(np.random.randint(0, 100000000, size=5)/100)
+    src1 = list(np.random.randint(0, 1000000, size=50))
+    src2 = list(np.random.randint(0, 100000000, size=50)/100)
     src = src1 + src2
     target = [sum(random.sample(src, i)) for i in range(1, 11)]
     src_data_group = [src]
@@ -35,7 +35,7 @@ if __name__ == '__main__':
         for tar in tar_data_group[i]:
             temp[tar] = bruto.bruto_force(src, tar)
         expect_data_group.append(temp)
-    print(expect_data_group)
+    # print(expect_data_group)
 
     end = time.time()
     print('Cython Running time: %s Seconds'%(end-start))
@@ -50,7 +50,7 @@ if __name__ == '__main__':
         for tar in tar_data_group[i]:
             temp[tar] = bruto_force_Py(src, tar)
         expect_data_group.append(temp)
-    print(expect_data_group)
+    # print(expect_data_group)
 
     end = time.time()
     print('Python Running time: %s Seconds'%(end-start))
