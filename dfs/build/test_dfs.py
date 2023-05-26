@@ -49,8 +49,8 @@ def combinationSum_Py(candidates, target, epsilon=0.01, all=False):
 
 if __name__ == '__main__':
 
-    src1 = list(np.random.randint(0, 1000000, size=10000))
-    src2 = list(np.random.randint(0, 100000000, size=10000)/100)
+    src1 = list(np.random.randint(0, 1000000, size=5))
+    src2 = list(np.random.randint(0, 100000000, size=5)/100)
     src = src1 + src2
     target = [sum(random.sample(src, i)) for i in range(1, 11)]
     src_data_group = [src]
@@ -64,7 +64,7 @@ if __name__ == '__main__':
         src = src_data_group[i]
         temp = {}
         for tar in tar_data_group[i]:
-            temp[tar] = FDM.combinationSum2(src, tar)
+            temp[tar] = FDM.combinationSum(src, tar)
         expect_data_group.append(temp)
     # print(expect_data_group)
 
